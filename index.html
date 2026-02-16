@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Ms.Mahima Rauniyar 💖</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(120deg,#ff9a9e,#fad0c4);
+    height:100vh;
+    overflow:hidden;
+    text-align:center;
+    color:white;
+}
+
+/* LOVE PAGE */
+#lovePage{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+h1{font-size:3em;}
+
+.btn{
+    padding:15px 35px;
+    font-size:22px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    margin:10px;
+    position:absolute;
+}
+
+#yes{background:#2ecc71;left:45%;top:60%;}
+#no{background:#e74c3c;left:55%;top:60%;}
+
+/* BIRTHDAY PAGE */
+#birthdayPage{
+    display:none;
+    position:absolute;
+    width:100%;
+    height:100vh;
+    overflow-y:auto;
+    background:linear-gradient(120deg,#ff758c,#ff7eb3);
+}
+
+/* Sections */
+.section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+/* FIXED GAP HERE */
+.section:last-child{
+    min-height:auto;
+    padding-top:10px;
+    padding-bottom:60px;
+}
+
+.cake{font-size:80px;animation:bounce 1s infinite alternate;}
+@keyframes bounce{from{transform:translateY(0);}to{transform:translateY(-20px);}}
+
+.scrollDown{
+    font-size:40px;
+    animation:moveDown 1s infinite;
+}
+@keyframes moveDown{0%{transform:translateY(0);}100%{transform:translateY(15px);}}
+
+/* Message box */
+.message{
+    max-width:900px;
+    font-size:1.6em;
+    line-height:1.8;
+    text-align:left;
+    background:rgba(255,255,255,0.15);
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+}
+
+/* Hearts animation */
+.heart{
+    position:fixed;
+    bottom:-10px;
+    animation:floatUp 6s linear infinite;
+}
+@keyframes floatUp{
+    to{transform:translateY(-110vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/Perfect.wav" type="audio/wav">
+</audio>
+
+<!-- LOVE PAGE -->
+<div id="lovePage">
+    <h1>Ms.mahima Rauniyar 💖<br>Do you love me?</h1>
+    <button id="yes" class="btn">Yes 😍</button>
+    <button id="no" class="btn">No 😢</button>
+</div>
+
+<!-- BIRTHDAY PAGE -->
+<div id="birthdayPage">
+
+    <div class="section">
+        <div class="cake">🎂🎉🎈💖</div>
+        <h1>Do you know today is very special day for me my love because its urs birthday mero mutu ❤️🥳</h1>
+        <div class="scrollDown">⬇️</div>
+        <p>Scroll down baby 💕</p>
+    </div>
+
+    <div class="section">
+        <div class="message">
+💖🎉 Happy Birthday my love 🎂💞 Toady is very special day for us 💑 yes us not only because toady is the  day when love of my heart came in this world for me 🌍❤️ Memories we made in this short time is very special to me 💕 and will be special which we be making throughout our entire life 💫👫 we fight with fix because we want to stay together 🤗💖 . Relationship is never 100 100 (efforts) sometimes it is 20-80, 30-70, 50-50, 10-90, even 0-100 💯 but we together always had made it 100 💞 that is what motivated our relationship to grow more  and more my love 💗🌹 Hope this our Trust , respect , love and care for each other never goes down always grow more and more 📈❤️ Once again happiest birthday my love, my  sweetheart 💕🎂🥳<br><br>
+
+I am well aware of our struggles mero mutu 💖🙏 I always pray to god for your and ours success my love 🙏✨ Your hard work will definitely pay off my love 💪💖 Toady on this special day i promise you baby i will never leave you alone 🤝❤️ I trust, respect , loave and care for you more my jaan 💞🥰<br><br>
+
+Extremely sorry my love sometimes i really upsets you yrr 😔💔 but trust my love i never intended to upset you 😢💖 I trust you more than i do on myself mero mutu ko tukra 💞✨ reality is that i can't imagine to live without you my love 😭❤️ I will always be with you my jaan no matters what the situation is 💪💑<br><br>
+
+once again Happy birthday sweetheart 🎂💖 always stay happy, healthy, calm and keep growing 🌸✨ May this year brings you extra energy to work hard on our dreams 💫 with lots of blessing 🙏💖 I always supports you and being urs shadow 👤💕 and i am all yours my love 💞 Have a exciting day my love 🎉🥰
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>Forever Yours Bibek ❤️💍</h1>
+    </div>
+
+</div>
+
+<script>
+const noBtn=document.getElementById("no");
+const yesBtn=document.getElementById("yes");
+const birthday=document.getElementById("birthdayPage");
+const music=document.getElementById("music");
+
+function moveButton(){
+    const x=Math.random()*(window.innerWidth-120);
+    const y=Math.random()*(window.innerHeight-80);
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
+}
+noBtn.addEventListener("mouseover",moveButton);
+noBtn.addEventListener("click",moveButton);
+
+yesBtn.addEventListener("click",()=>{
+    document.getElementById("lovePage").style.display="none";
+    birthday.style.display="block";
+    music.play();
+    startHearts();
+});
+
+function startHearts(){
+    setInterval(()=>{
+        const heart=document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="💖";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.fontSize=(Math.random()*25+15)+"px";
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(),6000);
+    },300);
+}
+</script>
+
+</body>
+</html>
